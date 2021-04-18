@@ -43,4 +43,27 @@ public class BinarySearchTree<K extends Comparable<K>>{
                 this.getSizeRecursive(current.right);
     }
 
+    public boolean search(K key){
+        return searchRecur(root,key);
+    }
+
+    /*This method is used to search Nodes to BinaryTree is there is no value exist it will return false,
+    compared with root value, if less added to left of it else added to right, this is done
+    Recursively
+    @param current indicates the current node
+    @param key indicates the key
+    @return boolean value true if found else return false
+     */
+
+    public Boolean searchRecur(BinaryNode<K> current, K key) {
+        if (current == null) return false;
+        int compareResult = key.compareTo(current.key);
+        if (compareResult == 0) return true;
+        if (compareResult < 0) {
+            return searchRecur(current.left, key);
+        } else {
+            return searchRecur(current.right, key);
+        }
+    }
+
 }

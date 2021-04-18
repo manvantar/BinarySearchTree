@@ -41,5 +41,28 @@ public class BinarySearchTest {
         int size = myBinaryTree.getSize();
         Assertions.assertEquals(13, size);
     }
+    @Test
+    public void testSearchMethod(){
+        BinarySearchTree<Integer> myBinaryTree = new BinarySearchTree<>();
+        myBinaryTree.add(56);
+        myBinaryTree.add(30);
+        myBinaryTree.add(70);
+        Integer root=myBinaryTree.root.key;
+        Assertions.assertEquals(56,root);
+        Integer firstRight=myBinaryTree.root.right.key;
+        Assertions.assertEquals(70,firstRight);
+        myBinaryTree.add(95);
+        myBinaryTree.add(60);
+        myBinaryTree.add(65);
+        myBinaryTree.add(22);
+        myBinaryTree.add(40);
+        myBinaryTree.add(11);
+        myBinaryTree.add(3);
+        myBinaryTree.add(16);
+        myBinaryTree.add(63);
+        myBinaryTree.add(67);
+        Assertions.assertTrue(myBinaryTree.search(95));
+    }
+
 
 }
